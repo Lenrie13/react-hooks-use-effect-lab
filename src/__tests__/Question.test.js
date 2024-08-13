@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen, unmountComponentAtNode } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import Question from "../components/Question";
 
@@ -21,7 +21,6 @@ afterEach(() => {
   jest.useRealTimers();
 });
 
-// const onChange = jest.fn();
 test("creates an interval with setTimeout", () => {
   jest.spyOn(global, 'setTimeout');
   render(<Question question={testQuestion} onAnswered={noop} />);
